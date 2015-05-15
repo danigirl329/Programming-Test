@@ -1,3 +1,4 @@
+//Test all the functions first
 function test(){
     var retVal = false;
     if(!testCreateRover()) {
@@ -67,8 +68,6 @@ function testGetPosition(){
     if(returnedPos.x != startPos.x || returnedPos.y != startPos.y || returnedPos.d != startPos.d){
         return false;
     }
-    
-
 
     //create good rover test
     mapSize = {x: 10,y: 10};
@@ -78,7 +77,6 @@ function testGetPosition(){
     if(returnedPos.x != startPos.x || returnedPos.y != startPos.y || returnedPos.d != startPos.d){
         return false;
     }
-    
 
     //create good rover test
     mapSize = {x: 20,y: 20};
@@ -126,13 +124,14 @@ function testRunMovements(){
     if(returnedPos.x != endPos.x || returnedPos.y != endPos.y || returnedPos.d != endPos.d){
         return false;
     }
-
     return true;
 }
 
+//run the test
 test();
 
 
+//Click action
 function go(){
     var mapXY = document.getElementById("mapXY").value;
     var posXYD = document.getElementById("posXYD").value.toUpperCase();
@@ -143,26 +142,30 @@ function go(){
     );
     if(rover.runMovements(directions)) {
         var endPos = rover.getPosition();
-        alert(JSON.stringify(endPos))
+        alert(JSON.stringify(endPos,  null, 4));
     } else {
-        alert("Please input proper directions");
+        alert("Please input accurate directions");
     }
     
     
 }
 
+//Turn the map coords into an object
 function getMapSizeObj(mapXY){
     var map = mapXY.split(" ");
     if (map.length != 2 ){
-        alert("Please enter less than 3 characters");    
+        alert("Please enter correct coordinates for the map size.");    
+        mapXY.focus();
     }
     return {x: map[0], y: map[1]};
 }
 
+//Turn the starting position into an object
 function getPosObj(posXYD){
     var pos = posXYD.split(" ");
     if (pos.length != 3){
-        alert("Please enter less than 5 characters");
+        alert("Please enter correct coordinates for the starting position.");
+        posXYD.focus();
     }
     return {x: pos[0], y: pos[1], d: pos[2]};
 }
