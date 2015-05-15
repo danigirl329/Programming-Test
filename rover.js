@@ -40,11 +40,17 @@ function createRover(mapSize, startPos){
                 break;
         }
         //map size handler -- the rover will never go off the cliff!
-        if(myPos.x > mapSize.x){
+        if(myPos.x > mapSize.x ){
             myPos.x = mapSize.x;   
         }
-        if(myPos.y > mapSize.y){
+        if(myPos.y > mapSize.y ){
             myPos.y = mapSize.y;
+        }
+        if(myPos.x < 0){
+            myPos.x = 0;
+        }
+        if(myPos.y < 0){
+            myPos.y = 0;
         }
     }
     
