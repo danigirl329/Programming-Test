@@ -128,17 +128,20 @@ function testRunMovements(){
 }
 
 //run the test
-test();
+//test();
 
 
 //Click action
 function go(){
-    var mapXY = document.getElementById("mapXY").value;
-    var posXYD = document.getElementById("posXYD").value.toUpperCase();
+    var mapX = document.getElementById("mapX").value;
+    var mapY = document.getElementById("mapY").value;
+    var posX = document.getElementById("posX").value.toUpperCase();
+    var posY = document.getElementById("posY").value.toUpperCase();
+    var posD = document.getElementById("posD").value.toUpperCase();
     var directions = document.getElementById("directions").value.toUpperCase();
     var rover = createRover(
-        getMapSizeObj(mapXY),
-        getPosObj(posXYD)
+        getMapSizeObj(mapX,mapY),
+        getPosObj(posX,posY,posD)
     );
     if(rover.runMovements(directions)) {
         var endPos = rover.getPosition();
@@ -151,8 +154,8 @@ function go(){
 }
 
 //Turn the map coords into an object
-function getMapSizeObj(mapXY){
-    var map = mapXY.split(" ");
+function getMapSizeObj(mapX,mapY){
+    var map = mapX+mapY
     if (map.length != 2 ){
         alert("Please enter correct coordinates for the map size.");    
         mapXY.focus();
@@ -161,8 +164,8 @@ function getMapSizeObj(mapXY){
 }
 
 //Turn the starting position into an object
-function getPosObj(posXYD){
-    var pos = posXYD.split(" ");
+function getPosObj(posX,posY,posD){
+    var pos = posX+posY+posD
     if (pos.length != 3){
         alert("Please enter correct coordinates for the starting position.");
         posXYD.focus();

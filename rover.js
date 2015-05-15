@@ -2,17 +2,21 @@
 function createRover(mapSize, startPos){
     //start validating my values
     if(mapSize == null || startPos == null){
+        alert("Your map size or starting position cannot be blank.")
         return null;
     }
-    if(isNaN(mapSize.x) || isNaN(mapSize.y) || isNaN(startPos.x) || isNaN(startPos.y) ){
+    if(isNaN(mapSize.x) || isNaN(mapSize.y) || isNaN(startPos.x) || isNaN(startPos.y)){
+        alert("Please input real numbers into the map size and starting position.")
         return null;
     }
     if(startPos.d.toUpperCase() != 'N' && startPos.d.toUpperCase() != 'S' && startPos.d.toUpperCase() != 'E' && startPos.d.toUpperCase() != 'W'){
+        alert("Please input N S W or E into the starting position.")
         return null;
     }
     //ridiculously large validation
     //this would probably need to go into another separate function in the long run
-    if(startPos.x > mapSize.x || startPos.y > mapSize.y || mapSize.x < 1 || mapSize.x > 1000 || mapSize.y < 1 || mapSize.y > 1000){
+    if(startPos.x > mapSize.x || startPos.y > mapSize.y || mapSize.x < 1 || mapSize.x > 1000 || mapSize.y < 1 || mapSize.y > 1000 ){
+       alert("Please review your inputs.") 
         return null;
     }   else{
         this.map = {};
