@@ -79,16 +79,16 @@ function createRover(mapSize, startPos){
     this.moveForward = function(){
         switch(myPos.d){
             case "N":
-                myPos.y += 1;
+                myPos.y = parseInt(myPos.y) + 1;
                 break;
             case "S":
-                myPos.y -= 1;
+                myPos.y = parseInt(myPos.y) - 1;
                 break;
             case "E":
-                myPos.x += 1;
+                myPos.x = parseInt(myPos.x) + 1;
                 break;
             case "W":
-                myPos.x -= 1;
+                myPos.x = parseInt(myPos.x) - 1;
                 break;
         }
     }
